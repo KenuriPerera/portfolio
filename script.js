@@ -1,0 +1,212 @@
+// ==================== Mobile Menu Toggle ====================
+const menuToggle = document.getElementById('menuToggle');
+const navMenu = document.getElementById('navMenu');
+
+menuToggle.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+});
+
+// Close menu when a link is clicked
+document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+    });
+});
+
+// ==================== Intersection Observer for Animations ====================
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -100px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.animation = 'fadeInUp 0.6s ease forwards';
+        }
+    });
+}, observerOptions);
+
+// Observe all project cards and skill items
+document.querySelectorAll('.project-card, .career-step, .skill-category, .cert-item').forEach(element => {
+    element.style.opacity = '0';
+    observer.observe(element);
+});
+
+// ==================== Smooth Scroll Behavior ====================
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    });
+});
+
+// ==================== Certificate Image Lightbox ====================
+const certImages = document.querySelectorAll('.cert-img');
+certImages.forEach(img => {
+    img.style.cursor = 'pointer';
+    img.addEventListener('click', () => {
+        openLightbox(img.src);
+    });
+});
+
+function openLightbox(imgSrc) {
+    const lightbox = document.createElement('div');
+    lightbox.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 2000;
+        animation: fadeIn 0.3s ease;
+    `;
+
+    const img = document.createElement('img');
+    img.src = imgSrc;
+    img.style.cssText = `
+        max-width: 90%;
+        max-height: 90%;
+        border-radius: 10px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    `;
+
+    lightbox.appendChild(img);
+    document.body.appendChild(lightbox);
+
+    lightbox.addEventListener('click', () => {
+        lightbox.remove();
+    });
+
+    // Close on Escape key
+    const closeOnEscape = (e) => {
+        if (e.key === 'Escape') {
+            lightbox.remove();
+            document.removeEventListener('keydown', closeOnEscape);
+        }
+    };
+    document.addEventListener('keydown', closeOnEscape);
+}
+
+// ==================== Add Animation to Fadeout ====================
+const style = document.createElement('style');
+style.textContent = `
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+`;
+document.head.appendChild(style);
+
+// ==================== Scroll to Top Button ====================
+window.addEventListener('scroll', () => {
+    const scrollBtn = document.getElementById('scrollToTop');
+    if (window.scrollY > 300) {
+        if (!scrollBtn) {
+            const btn = document.createElement('button');
+            btn.id = 'scrollToTop';
+            btn.innerHTML = '↑';
+            btn.style.cssText = `
+                position: fixed;
+                bottom: 30px;
+                right: 30px;
+                width: 50px;
+                height: 50px;
+                background: linear-gradient(135deg, #2563eb, #06b6d4);
+                color: white;
+                border: none;
+                border-radius: 50%;
+                font-size: 24px;
+                cursor: pointer;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+                z-index: 999;
+                animation: slideUp 0.3s ease;
+                transition: all 0.3s ease;
+            `;
+            document.body.appendChild(btn);
+
+            btn.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            btn.addEventListener('mouseover', () => {
+                btn.style.transform = 'translateY(-5px)';
+                btn.style.boxShadow = '0 6px 20px rgba(0, 0, 0, 0.3)';
+            });
+
+            btn.addEventListener('mouseout', () => {
+                btn.style.transform = 'translateY(0)';
+                btn.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.2)';
+            });
+        }
+    } else {
+        const scrollBtn = document.getElementById('scrollToTop');
+        if (scrollBtn) scrollBtn.remove();
+    }
+});
+
+// Add slideUp animation
+const slideUpStyle = document.createElement('style');
+slideUpStyle.textContent = `
+    @keyframes slideUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+`;
+document.head.appendChild(slideUpStyle);
+
+// ==================== Track Active Navigation Link ====================
+window.addEventListener('scroll', () => {
+    const sections = document.querySelectorAll('section, header');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    let current = '';
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (scrollY >= sectionTop - 200) {
+            current = section.getAttribute('id');
+        }
+    });
+
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href').slice(1) === current) {
+            link.style.color = 'var(--primary-color)';
+        } else {
+            link.style.color = '';
+        }
+    });
+});
+
+// ==================== Form Validation (if contact form is added) ====================
+function validateEmail(email) {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(email);
+}
+
+// Initialize on page load
+document.addEventListener('DOMContentLoaded', () => {
+    console.log('Portfolio loaded successfully!');
+});
