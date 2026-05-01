@@ -225,21 +225,21 @@
             <div class="career-step">
                 <div class="career-icon"><i class="fas fa-seedling"></i></div>
                 <h3>Short Term</h3>
-                <p class="career-phase">Now — 2025</p>
+                <p class="career-phase">2026</p>
                 <p>Strengthen Business Analysis & Agile skills</p>
             </div>
             <div class="career-arrow"><i class="fas fa-chevron-right"></i></div>
             <div class="career-step">
                 <div class="career-icon"><i class="fas fa-chart-line"></i></div>
                 <h3>Mid Term</h3>
-                <p class="career-phase">2025 — 2027</p>
+                <p class="career-phase">2026 — 2028</p>
                 <p>Become a Senior Business Analyst</p>
             </div>
             <div class="career-arrow"><i class="fas fa-chevron-right"></i></div>
             <div class="career-step">
                 <div class="career-icon"><i class="fas fa-rocket"></i></div>
                 <h3>Long Term</h3>
-                <p class="career-phase">2027 — 2032</p>
+                <p class="career-phase">2028 — 2032</p>
                 <p>Move into Product Management / Tech Leadership</p>
             </div>
         </div>
@@ -586,6 +586,151 @@
                 link.classList.toggle('active', link.getAttribute('href') === '#' + current);
             });
         });
+
+        // Interactive Certificate Gallery
+        (() => {
+            const certificatesData = [
+                {
+                    img: 'assets/certificates/cert1.jpg',
+                    label: 'Microsoft 365 Copilot',
+                    title: 'Enhance your productivity with prebuilt Microsoft 365 Copilot agents',
+                    desc: 'Mastered the use of prebuilt Microsoft 365 Copilot agents to automate workflows, streamline productivity, and implement intelligent AI-assisted solutions in business environments.',
+                    tags: ['Microsoft 365', 'Copilot', 'AI', 'Productivity']
+                },
+                {
+                    img: 'assets/certificates/cert2.jpg',
+                    label: 'Power Apps',
+                    title: 'Create a canvas app in Power Apps',
+                    desc: 'Acquired foundational skills to design, build, and deploy custom canvas applications using Microsoft Power Apps, aligning technical development with business problem-solving.',
+                    tags: ['Power Apps', 'Low-Code', 'Canvas App']
+                },
+                {
+                    img: 'assets/certificates/cert3.jpg',
+                    label: 'Microsoft 365 Copilot',
+                    title: 'Explore prebuilt Microsoft 365 Copilot agents',
+                    desc: 'Explored various prebuilt Copilot agents across the Microsoft 365 ecosystem to discover new ways of integrating AI, understanding system capabilities, and mapping out business use cases.',
+                    tags: ['Microsoft 365', 'Copilot', 'AI', 'System Exploration']
+                },
+                {
+                    img: 'assets/certificates/cert4.jpg',
+                    label: 'Postman Academy',
+                    title: 'API Beginner Learning Path',
+                    desc: 'Completed the API Beginner Learning Path through Postman Academy, establishing a strong understanding of how APIs fundamentally work, request structures, and API endpoints.',
+                    tags: ['APIs', 'Postman', 'Web Services', 'Requests']
+                },
+                {
+                    img: 'assets/certificates/cert5.jpg',
+                    label: 'Postman Student Expert',
+                    title: 'Postman API Fundamentals Student Expert',
+                    desc: 'Earned by completing the official Postman learning path — covering REST APIs, request building, test scripting, and API documentation. This certification supports technical fluency with development teams.',
+                    tags: ['REST APIs', 'Postman', 'Test Scripting']
+                },
+                {
+                    img: 'assets/certificates/cert6.jpg',
+                    label: 'MongoDB',
+                    title: 'MongoDB CRUD Operations',
+                    desc: 'Demonstrated ability to interact with non-relational databases using MongoDB. Learned to successfully perform Create, Read, Update, and Delete (CRUD) operations on documents.',
+                    tags: ['MongoDB', 'NoSQL', 'Database', 'CRUD']
+                },
+                {
+                    img: 'assets/certificates/cert7.jpg',
+                    label: 'Data Analytics',
+                    title: 'Introduction to Data Analytics',
+                    desc: 'Gained a solid introduction to data analytics processes, tools, and methodologies. Learned how to interpret raw data to support business intelligence and data-driven decision making.',
+                    tags: ['Data Analytics', 'Business Intelligence', 'Data']
+                },
+                {
+                    img: 'assets/certificates/cert8.jpg',
+                    label: 'Quality Assurance',
+                    title: 'Introduction to Software Quality Assurance',
+                    desc: 'Learned the core principles of Software Quality Assurance (QA). Explored methodologies for planning and executing tests to ensure software reliability and defect reduction before release.',
+                    tags: ['QA', 'Software Testing', 'Quality Assurance']
+                }
+            ];
+
+            const certItems = document.querySelectorAll('.cert-item');
+            const activeCertImg = document.getElementById('active-cert-img');
+            const activeCertLabel = document.getElementById('active-cert-label');
+            const activeCertTitle = document.getElementById('active-cert-title');
+            const activeCertDesc = document.getElementById('active-cert-desc');
+            const activeCertTags = document.getElementById('active-cert-tags');
+            const activeCertContent = document.getElementById('active-cert-content');
+
+            certItems.forEach((item, index) => {
+                const data = certificatesData[index];
+                if (data && index === 0) {
+                    item.classList.add('active');
+                }
+
+                item.style.cursor = 'pointer';
+                item.addEventListener('click', () => {
+                    if (item.classList.contains('active')) return;
+
+                    certItems.forEach(c => c.classList.remove('active'));
+                    item.classList.add('active');
+
+                    if (data && activeCertImg && activeCertContent) {
+                        activeCertContent.classList.remove('cert-fade-anim');
+                        void activeCertContent.offsetWidth; // Trigger reflow
+                        activeCertContent.classList.add('cert-fade-anim');
+
+                        activeCertImg.classList.remove('cert-fade-anim');
+                        void activeCertImg.offsetWidth;
+                        activeCertImg.classList.add('cert-fade-anim');
+
+                        activeCertImg.src = data.img;
+                        activeCertLabel.textContent = data.label;
+                        activeCertTitle.textContent = data.title;
+                        activeCertDesc.textContent = data.desc;
+
+                        activeCertTags.innerHTML = '';
+                        data.tags.forEach(tag => {
+                            const span = document.createElement('span');
+                            span.textContent = tag;
+                            activeCertTags.appendChild(span);
+                        });
+                    }
+                });
+            });
+
+            if (activeCertImg) {
+                activeCertImg.style.cursor = 'pointer';
+                activeCertImg.addEventListener('click', () => {
+                    const lightbox = document.createElement('div');
+                    lightbox.style.cssText = `
+                        position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+                        background: rgba(0, 0, 0, 0.8); display: flex;
+                        justify-content: center; align-items: center; z-index: 2000;
+                        opacity: 0; transition: opacity 0.3s ease;
+                    `;
+
+                    const img = document.createElement('img');
+                    img.src = activeCertImg.src;
+                    img.style.cssText = `
+                        max-width: 90%; max-height: 90%; border-radius: 10px;
+                        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+                    `;
+
+                    lightbox.appendChild(img);
+                    document.body.appendChild(lightbox);
+
+                    // Trigger reflow for transition
+                    void lightbox.offsetWidth;
+                    lightbox.style.opacity = '1';
+
+                    const closeLightbox = () => lightbox.remove();
+                    lightbox.addEventListener('click', closeLightbox);
+
+                    const closeOnEscape = (e) => {
+                        if (e.key === 'Escape') {
+                            closeLightbox();
+                            document.removeEventListener('keydown', closeOnEscape);
+                        }
+                    };
+                    document.addEventListener('keydown', closeOnEscape);
+                });
+            }
+        })();
     </script>
 
 </body>
