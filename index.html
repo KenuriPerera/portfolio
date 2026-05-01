@@ -1,215 +1,586 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kenuri Perera | Portfolio</title>
-    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+
 <body>
 
-<header>
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="logo">Kenuri Perera</div>
-            <button class="menu-toggle" id="menuToggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            <ul class="nav-menu" id="navMenu">
-                <li><a href="#home" class="nav-link">Home</a></li>
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#projects" class="nav-link">Projects</a></li>
-                <li><a href="#skills" class="nav-link">Skills</a></li>
-                <li><a href="#certificates" class="nav-link">Certificates</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
+    <!-- ===================== NAVBAR ===================== -->
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">Kenuri Perera</div>
+                <button class="menu-toggle" id="menuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="#home" class="nav-link">Home</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#journal" class="nav-link">Journal</a></li>
+                    <li><a href="#career" class="nav-link">Career Plan</a></li>
+                    <li><a href="#projects" class="nav-link">Projects</a></li>
+                    <li><a href="#skills" class="nav-link">Skills</a></li>
+                    <li><a href="#certificates" class="nav-link">Certificates</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
 
-    <section class="hero" id="home">
-        <div class="hero-content">
-            <h1>Kenuri Perera</h1>
-            <p class="subtitle">Intern Business Analyst | 4th Year IT Undergraduate</p>
-            <p class="tagline">Bridging Business & Technology with Data-Driven Solutions</p>
-            <a href="#contact" class="cta-button">Get in Touch</a>
+        <!-- ===================== HERO ===================== -->
+        <section class="hero" id="home">
+            <div class="hero-content">
+                <div class="hero-badge">Portfolio 2024 — 2025</div>
+                <h1>Kenuri Perera</h1>
+                <p class="subtitle">Intern Business Analyst | 4th Year IT Undergraduate</p>
+                <p class="tagline">Bridging Business & Technology with Data-Driven Solutions</p>
+                <div class="hero-btns">
+                    <a href="#about" class="cta-button">Explore Portfolio</a>
+                    <a href="assets/cv.pdf" download class="cta-button cta-outline">
+                        <i class="fas fa-download"></i> Download CV
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <span class="stat-num">4+</span>
+                        <span class="stat-label">Projects</span>
+                    </div>
+                    <div class="hero-stat-divider"></div>
+                    <div class="hero-stat">
+                        <span class="stat-num">2</span>
+                        <span class="stat-label">Degrees</span>
+                    </div>
+                    <div class="hero-stat-divider"></div>
+                    <div class="hero-stat">
+                        <span class="stat-num">3+</span>
+                        <span class="stat-label">Certifications</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-scroll">
+                <span>Scroll</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+        </section>
+    </header>
+
+    <!-- ===================== 1. INTRODUCTION / ABOUT ===================== -->
+    <section class="profile section-reveal" id="about">
+        <div class="section-tag">01 — Introduction</div>
+        <div class="profile-container">
+            <div class="profile-img-wrap">
+                <img src="assets/profile.jpg" alt="Profile Picture" class="profile-img">
+                <div class="profile-img-ring"></div>
+            </div>
+            <div class="profile-text">
+                <h2>About Me</h2>
+                <p>
+                    I am a 4th-year IT undergraduate at SLIIT, currently working as an Intern Business Analyst at SLT
+                    Digital Labs.
+                    I specialize in bridging business needs with technical solutions using agile practices and
+                    data-driven analysis.
+                </p>
+                <p>
+                    With a strong foundation in both technical and business domains, I'm passionate about driving
+                    innovation
+                    and creating impactful solutions that solve real-world problems.
+                </p>
+                <div class="profile-meta">
+                    <div class="meta-item"><i class="fas fa-map-marker-alt"></i> Dehiwala, Sri Lanka</div>
+                    <div class="meta-item"><i class="fas fa-envelope"></i> kenuriperera@gmail.com</div>
+                    <div class="meta-item"><i class="fas fa-phone"></i> 071-0895289</div>
+                </div>
+                <div class="profile-links">
+                    <a href="https://github.com/KenuriPerera" target="_blank" class="profile-link"><i
+                            class="fab fa-github"></i> GitHub</a>
+                    <a href="https://linkedin.com/in/kenuri-perera" target="_blank" class="profile-link"><i
+                            class="fab fa-linkedin"></i> LinkedIn</a>
+                </div>
+                <div class="edu-block">
+                    <h3><i class="fas fa-graduation-cap"></i> Education</h3>
+                    <div class="edu-item">
+                        <div class="edu-dot"></div>
+                        <div>
+                            <strong>BSc. (Hons) Information Technology</strong>
+                            <span>Sri Lanka Institute of Information Technology (SLIIT) · 2023 – Present</span>
+                        </div>
+                    </div>
+                    <div class="edu-item">
+                        <div class="edu-dot"></div>
+                        <div>
+                            <strong>Bachelor of Information Technology (External)</strong>
+                            <span>University of Moratuwa · 2022 – Present</span>
+                        </div>
+                    </div>
+                    <div class="edu-item">
+                        <div class="edu-dot"></div>
+                        <div>
+                            <strong>Advanced Level</strong>
+                            <span>Mahamaya Balika Vidyalaya, Nugegoda · 2022</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
-</header>
 
-<section class="profile" id="about">
-    <div class="profile-container">
-        <img src="assets/profile.jpg" alt="Profile Picture" class="profile-img">
-        <div class="profile-text">
-            <h2>About Me</h2>
-            <p>
-                I am a 4th-year IT undergraduate at SLIIT, currently working as an Intern Business Analyst at SLT Digital Labs. 
-                I specialize in bridging business needs with technical solutions using agile practices and data-driven analysis.
-            </p>
-            <p>
-                With a strong foundation in both technical and business domains, I'm passionate about driving innovation 
-                and creating impactful solutions that solve real-world problems.
-            </p>
-        </div>
-    </div>
-</section>
+    <!-- ===================== 2. REFLECTIVE JOURNAL ===================== -->
+    <section class="section-reveal" id="journal">
+        <div class="section-tag">02 — Reflective Journal</div>
+        <h2>What I Learned in PPW</h2>
+        <p class="section-intro">
+            The Professional Pathways in Work module challenged me to examine my professional identity, communication
+            style,
+            and career direction with structured intentionality. Below are my key reflections across six core themes.
+        </p>
+        <div class="journal-grid">
 
-<section id="career">
-    <h2>Career Development Plan</h2>
-    <div class="career-roadmap">
-        <div class="career-step">
-            <h3>Short Term</h3>
-            <p>Strengthen Business Analysis & Agile skills</p>
-        </div>
-        <div class="career-step">
-            <h3>Mid Term</h3>
-            <p>Become a Senior Business Analyst</p>
-        </div>
-        <div class="career-step">
-            <h3>Long Term</h3>
-            <p>Move into Product Management / Tech Leadership</p>
-        </div>
-    </div>
-</section>
+            <div class="journal-card">
+                <div class="journal-num">01</div>
+                <div class="journal-icon"><i class="fas fa-user-circle"></i></div>
+                <h3>Discovering My Professional Identity</h3>
+                <p class="journal-theme">Self-Awareness</p>
+                <p>PPW introduced me to structured self-reflection for the first time. Through personality assessments
+                    and reflective exercises, I recognized that I naturally gravitate toward roles requiring both
+                    analytical thinking and interpersonal communication. I learned that my strength is not just in
+                    coding, but in understanding <em>why</em> a system needs to exist — the very foundation of Business
+                    Analysis.</p>
+            </div>
 
-<section id="projects">
-    <h2>Featured Projects</h2>
-    <div class="projects-grid">
-        <div class="project-card">
-            <div class="project-icon">🏠</div>
-            <h3>Landora</h3>
-            <p class="project-type">Property Management System</p>
-            <p>A comprehensive system for managing property listings, tenant information, and maintenance requests.</p>
-            <div class="project-tags">
-                <span>Management</span>
-                <span>Database</span>
+            <div class="journal-card">
+                <div class="journal-num">02</div>
+                <div class="journal-icon"><i class="fas fa-comments"></i></div>
+                <h3>The Power of Professional Communication</h3>
+                <p class="journal-theme">Communication</p>
+                <p>I had always considered myself a decent communicator, but PPW revealed how much nuance goes into
+                    professional communication — particularly in written form. Learning to structure emails, reports,
+                    and presentations with clarity and purpose has made me a more effective team member. I now think
+                    carefully about audience, tone, and intent before communicating in any professional context.</p>
+            </div>
+
+            <div class="journal-card">
+                <div class="journal-num">03</div>
+                <div class="journal-icon"><i class="fas fa-briefcase"></i></div>
+                <h3>Understanding the Professional World</h3>
+                <p class="journal-theme">Workplace Readiness</p>
+                <p>One of the most valuable sessions focused on workplace expectations and culture. I realized that
+                    technical skills alone are insufficient — employers value adaptability, reliability, and the ability
+                    to work within team dynamics. Learning about professional ethics, workplace norms, and how to
+                    navigate organizational hierarchies gave me a realistic picture of what entering the workforce will
+                    look like.</p>
+            </div>
+
+            <div class="journal-card">
+                <div class="journal-num">04</div>
+                <div class="journal-icon"><i class="fas fa-bullseye"></i></div>
+                <h3>From Vague Dreams to Structured Goals</h3>
+                <p class="journal-theme">Goal Setting</p>
+                <p>PPW taught me the SMART goal framework, which transformed how I think about my future. Instead of a
+                    vague ambition to "work in tech," I now have a structured career development plan with specific
+                    milestones, timelines, and action steps. This shift in thinking has already improved my academic
+                    planning and how I approach personal projects and internship preparation.</p>
+            </div>
+
+            <div class="journal-card">
+                <div class="journal-num">05</div>
+                <div class="journal-icon"><i class="fas fa-id-card"></i></div>
+                <h3>Crafting a Professional Narrative</h3>
+                <p class="journal-theme">CV &amp; Personal Branding</p>
+                <p>Building my CV and LinkedIn profile during PPW was more challenging than I expected. I learned that a
+                    CV is not merely a list of facts — it is a carefully constructed narrative that positions you for
+                    specific opportunities. Understanding how to tailor content, highlight impact over activity, and
+                    present projects clearly was a practical skill I applied immediately in my internship applications.
+                </p>
+            </div>
+
+            <div class="journal-card">
+                <div class="journal-num">06</div>
+                <div class="journal-icon"><i class="fas fa-book-open"></i></div>
+                <h3>Building a Lifelong Learning Mindset</h3>
+                <p class="journal-theme">Continuous Learning</p>
+                <p>The module consistently reinforced that the IT industry demands continuous upskilling. This motivated
+                    me to pursue the Postman API Fundamentals certification independently and take a more intentional
+                    approach to building skills beyond the formal curriculum. I now keep a personal learning log and set
+                    monthly micro-goals for professional development.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ===================== 3. CAREER DEVELOPMENT PLAN ===================== -->
+    <section class="section-reveal" id="career">
+        <div class="section-tag">03 — Career Development Plan</div>
+        <h2>Career Development Plan</h2>
+        <p class="section-intro">A structured roadmap from where I am now to where I aspire to be — grounded in skills,
+            certifications, and real-world experience.</p>
+
+        <div class="career-roadmap">
+            <div class="career-step">
+                <div class="career-icon"><i class="fas fa-seedling"></i></div>
+                <h3>Short Term</h3>
+                <p class="career-phase">Now — 2025</p>
+                <p>Strengthen Business Analysis & Agile skills</p>
+            </div>
+            <div class="career-arrow"><i class="fas fa-chevron-right"></i></div>
+            <div class="career-step">
+                <div class="career-icon"><i class="fas fa-chart-line"></i></div>
+                <h3>Mid Term</h3>
+                <p class="career-phase">2025 — 2027</p>
+                <p>Become a Senior Business Analyst</p>
+            </div>
+            <div class="career-arrow"><i class="fas fa-chevron-right"></i></div>
+            <div class="career-step">
+                <div class="career-icon"><i class="fas fa-rocket"></i></div>
+                <h3>Long Term</h3>
+                <p class="career-phase">2027 — 2032</p>
+                <p>Move into Product Management / Tech Leadership</p>
             </div>
         </div>
 
-        <div class="project-card">
-            <div class="project-icon">👔</div>
-            <h3>Apparel Manufacturing</h3>
-            <p class="project-type">Management System</p>
-            <p>System for streamlining apparel production, inventory tracking, and supply chain management.</p>
-            <div class="project-tags">
-                <span>Manufacturing</span>
-                <span>Supply Chain</span>
+        <div class="career-timeline">
+
+            <div class="timeline-item section-reveal">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <span class="timeline-phase">Now — 2025 · Immediate</span>
+                    <h3>Complete Degree & Build Core Expertise</h3>
+                    <p>Finish BSc. (Hons) IT at SLIIT and the external degree at the University of Moratuwa. Deepen
+                        knowledge of Business Analysis methodologies (BABOK, process mapping, use-case modelling).
+                        Strengthen agile and SCRUM skills through the current internship at SLT Digital Labs. Target
+                        ISTQB Foundation Level certification.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item section-reveal">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <span class="timeline-phase">2025 — 2026 · Short-Term</span>
+                    <h3>Grow as an Analyst Through Industry Exposure</h3>
+                    <p>Leverage the internship to gain hands-on exposure to real-world requirement workshops,
+                        stakeholder management, and sprint ceremonies. Determine whether a pure BA path or a hybrid
+                        BA/QA track is the right direction. Build a professional network within the Sri Lankan tech
+                        industry and explore opportunities in FinTech companies.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item section-reveal">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <span class="timeline-phase">2026 — 2028 · Mid-Term</span>
+                    <h3>Senior Business Analyst in a Product Team</h3>
+                    <p>Progress to a Senior Business Analyst role with ownership over a product domain. Master
+                        stakeholder communication, high-quality BRD and user story writing, and develop a reputation for
+                        bridging technical and non-technical teams. Begin working toward CBAP certification and consider
+                        postgraduate study in Business Analytics.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item section-reveal">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <span class="timeline-phase">2028 — 2032 · Long-Term</span>
+                    <h3>Product Manager / Tech Leader in FinTech</h3>
+                    <p>Transition into a Product Manager or technology leadership role with strategic ownership over a
+                        product line. Explore leadership opportunities managing a BA team or leading requirement streams
+                        on large-scale FinTech projects. Contribute to products with measurable financial and social
+                        impact across the region.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="career-goals">
+            <div class="goal-card">
+                <i class="fas fa-certificate"></i>
+                <h4>Target Certifications</h4>
+                <p>ISTQB Foundation · Agile BA · CBAP · AWS Cloud Practitioner</p>
+            </div>
+            <div class="goal-card">
+                <i class="fas fa-globe"></i>
+                <h4>Domain Focus</h4>
+                <p>Financial Technology · Healthcare IT · Enterprise Software · Data Analytics</p>
+            </div>
+            <div class="goal-card">
+                <i class="fas fa-users"></i>
+                <h4>Professional Network</h4>
+                <p>AIESEC alumni · SLIIT industry partners · LinkedIn community</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== 4. CURRICULUM VITAE / PROJECTS ===================== -->
+    <section class="section-reveal" id="projects">
+        <div class="section-tag">04 — Curriculum Vitae</div>
+        <h2>Featured Projects</h2>
+        <p class="section-intro">A selection of academic and personal projects demonstrating full-stack development,
+            mobile engineering, and UI/UX design skills.</p>
+
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-icon">🏠</div>
+                <h3>Landora</h3>
+                <p class="project-type">Property Management System</p>
+                <p>A comprehensive system for managing property listings, tenant information, and maintenance requests.
+                </p>
+                <div class="project-tags">
+                    <span>MERN Stack</span>
+                    <span>Database</span>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-icon">👔</div>
+                <h3>Apparel Manufacturing</h3>
+                <p class="project-type">Management System</p>
+                <p>System for streamlining apparel production, inventory tracking, and supply chain management.</p>
+                <div class="project-tags">
+                    <span>React</span>
+                    <span>Node.js</span>
+                    <span>MongoDB</span>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-icon">✓</div>
+                <h3>Focus TODO</h3>
+                <p class="project-type">Mobile Application</p>
+                <p>A productivity mobile app designed to help users manage tasks efficiently with focus timer features.
+                </p>
+                <div class="project-tags">
+                    <span>Kotlin</span>
+                    <span>Android</span>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-icon">🎨</div>
+                <h3>Book-Worm</h3>
+                <p class="project-type">Figma Design</p>
+                <p>UI/UX design for a digital book discovery and reading platform with modern design principles.</p>
+                <div class="project-tags">
+                    <span>Figma</span>
+                    <span>UX/UI</span>
+                    <span>Prototyping</span>
+                </div>
             </div>
         </div>
 
-        <div class="project-card">
-            <div class="project-icon">✓</div>
-            <h3>Focus TODO</h3>
-            <p class="project-type">Mobile Application</p>
-            <p>A productivity mobile app designed to help users manage tasks efficiently with focus timer features.</p>
-            <div class="project-tags">
-                <span>Mobile</span>
-                <span>Productivity</span>
+        <div class="extracurricular">
+            <h3><i class="fas fa-star"></i> Extra-Curricular</h3>
+            <div class="extra-grid">
+                <div class="extra-item">
+                    <i class="fas fa-globe-asia"></i>
+                    <div>
+                        <strong>Active Member — AIESEC in SLIIT</strong>
+                        <span>Leadership, cross-cultural exchange & project management</span>
+                    </div>
+                </div>
+                <div class="extra-item">
+                    <i class="fas fa-award"></i>
+                    <div>
+                        <strong>Senior Prefect — Mahamaya Balika Vidyalaya</strong>
+                        <span>2020 – 2021 · Team leadership and school administration</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== SKILLS ===================== -->
+    <section class="section-reveal" id="skills">
+        <div class="section-tag">04 — Skills</div>
+        <h2>Skills & Expertise</h2>
+
+        <div class="skills-container">
+            <div class="skill-category">
+                <h3>Business Analysis</h3>
+                <ul>
+                    <li>Requirements Gathering</li>
+                    <li>Process Mapping</li>
+                    <li>Agile Methodologies</li>
+                    <li>Data Analysis</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h3>Technical Skills</h3>
+                <ul>
+                    <li>Database Design</li>
+                    <li>System Architecture</li>
+                    <li>Web Development</li>
+                    <li>SQL & Python</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h3>Soft Skills</h3>
+                <ul>
+                    <li>Communication</li>
+                    <li>Team Leadership</li>
+                    <li>Problem Solving</li>
+                    <li>Project Management</li>
+                </ul>
             </div>
         </div>
 
-        <div class="project-card">
-            <div class="project-icon">🎨</div>
-            <h3>Book-Worm</h3>
-            <p class="project-type">Figma Design</p>
-            <p>UI/UX design for a digital book discovery and reading platform with modern design principles.</p>
-            <div class="project-tags">
-                <span>Design</span>
-                <span>UX/UI</span>
+        <div class="skill-bars">
+            <div class="skill-bar-item">
+                <div class="skill-bar-label"><span>HTML / CSS / JavaScript</span><span>88%</span></div>
+                <div class="skill-bar-track">
+                    <div class="skill-bar-fill" data-width="88%"></div>
+                </div>
+            </div>
+            <div class="skill-bar-item">
+                <div class="skill-bar-label"><span>Figma / UI Design</span><span>90%</span></div>
+                <div class="skill-bar-track">
+                    <div class="skill-bar-fill" data-width="90%"></div>
+                </div>
+            </div>
+            <div class="skill-bar-item">
+                <div class="skill-bar-label"><span>Kotlin (Android)</span><span>72%</span></div>
+                <div class="skill-bar-track">
+                    <div class="skill-bar-fill" data-width="72%"></div>
+                </div>
+            </div>
+            <div class="skill-bar-item">
+                <div class="skill-bar-label"><span>Postman / API Testing</span><span>78%</span></div>
+                <div class="skill-bar-track">
+                    <div class="skill-bar-fill" data-width="78%"></div>
+                </div>
+            </div>
+            <div class="skill-bar-item">
+                <div class="skill-bar-label"><span>Agile / SCRUM / SDLC</span><span>70%</span></div>
+                <div class="skill-bar-track">
+                    <div class="skill-bar-fill" data-width="70%"></div>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<section id="skills">
-    <h2>Skills & Expertise</h2>
-    <div class="skills-container">
-        <div class="skill-category">
-            <h3>Business Analysis</h3>
-            <ul>
-                <li>Requirements Gathering</li>
-                <li>Process Mapping</li>
-                <li>Agile Methodologies</li>
-                <li>Data Analysis</li>
-            </ul>
-        </div>
-        <div class="skill-category">
-            <h3>Technical Skills</h3>
-            <ul>
-                <li>Database Design</li>
-                <li>System Architecture</li>
-                <li>Web Development</li>
-                <li>SQL & Python</li>
-            </ul>
-        </div>
-        <div class="skill-category">
-            <h3>Soft Skills</h3>
-            <ul>
-                <li>Communication</li>
-                <li>Team Leadership</li>
-                <li>Problem Solving</li>
-                <li>Project Management</li>
-            </ul>
-        </div>
-    </div>
-</section>
+    <!-- ===================== 5. CERTIFICATES ===================== -->
+    <section class="section-reveal" id="certificates">
+        <div class="section-tag">05 — Evidence of Learning</div>
+        <h2>Certifications & Achievements</h2>
+        <p class="section-intro">Courses and certifications completed within the last year to improve both technical and
+            professional skills.</p>
 
-<section id="certificates">
-    <h2>Certifications & Achievements</h2>
-    <div class="certificates">
-        <div class="cert-item">
-            <img src="assets/certificates/cert1.jpg" alt="Certificate 1" class="cert-img">
+        <div class="cert-featured">
+            <div class="cert-featured-badge"><i class="fas fa-satellite-dish"></i></div>
+            <div class="cert-featured-body">
+                <span class="cert-featured-label">Postman Student Expert Program</span>
+                <h3>Postman API Fundamentals Student Expert</h3>
+                <p>Earned by completing the official Postman learning path — covering REST APIs, request building, test
+                    scripting, and API documentation. This certification supports my Business Analysis career path by
+                    enabling technical fluency with development teams.</p>
+                <div class="cert-tags">
+                    <span>REST APIs</span>
+                    <span>API Testing</span>
+                    <span>Postman Collections</span>
+                    <span>Test Scripting</span>
+                </div>
+            </div>
         </div>
-        <div class="cert-item">
-            <img src="assets/certificates/cert2.jpg" alt="Certificate 2" class="cert-img">
-        </div>
-        <div class="cert-item">
-            <img src="assets/certificates/cert3.jpg" alt="Certificate 3" class="cert-img">
-        </div>
-        <div class="cert-item">
-            <img src="assets/certificates/cert4.jpg" alt="Certificate 4" class="cert-img">
-        </div>
-        <div class="cert-item">
-            <img src="assets/certificates/cert5.jpg" alt="Certificate 5" class="cert-img">
-        </div>
-        <div class="cert-item">
-            <img src="assets/certificates/cert6.jpg" alt="Certificate 6" class="cert-img">
-        </div>
-        <div class="cert-item">
-            <img src="assets/certificates/cert7.jpg" alt="Certificate 7" class="cert-img">
-        </div>
-    </div>
-    <div class="cv-download">
-        <a href="assets/cv.pdf" download class="download-btn">
-            <i class="fas fa-download"></i> Download Full CV
-        </a>
-    </div>
-</section>
 
-<section id="contact">
-    <h2>Get In Touch</h2>
-    <div class="contact-content">
-        <p>I'm always interested in hearing about new opportunities and connecting with fellow professionals.</p>
-        <div class="contact-links">
-            <a href="mailto:your.email@example.com" class="contact-btn" title="Email">
-                <i class="fas fa-envelope"></i> Email
+        <div class="certificates">
+            <div class="cert-item">
+                <img src="assets/certificates/cert1.jpg" alt="Certificate 1" class="cert-img">
+            </div>
+            <div class="cert-item">
+                <img src="assets/certificates/cert2.jpg" alt="Certificate 2" class="cert-img">
+            </div>
+            <div class="cert-item">
+                <img src="assets/certificates/cert3.jpg" alt="Certificate 3" class="cert-img">
+            </div>
+            <div class="cert-item">
+                <img src="assets/certificates/cert4.jpg" alt="Certificate 4" class="cert-img">
+            </div>
+            <div class="cert-item">
+                <img src="assets/certificates/cert5.jpg" alt="Certificate 5" class="cert-img">
+            </div>
+            <div class="cert-item">
+                <img src="assets/certificates/cert6.jpg" alt="Certificate 6" class="cert-img">
+            </div>
+            <div class="cert-item">
+                <img src="assets/certificates/cert7.jpg" alt="Certificate 7" class="cert-img">
+            </div>
+        </div>
+
+        <div class="cv-download">
+            <a href="assets/cv.pdf" download class="download-btn">
+                <i class="fas fa-download"></i> Download Full CV
             </a>
-            <a href="https://linkedin.com/in/kenuri-perera" target="_blank" class="contact-btn" title="LinkedIn">
-                <i class="fab fa-linkedin"></i> LinkedIn
-            </a>
-            <a href="https://github.com/kenuri" target="_blank" class="contact-btn" title="GitHub">
-                <i class="fab fa-github"></i> GitHub
-            </a>
         </div>
-    </div>
-</section>
+    </section>
 
-<footer>
-    <p>&copy; 2025 Kenuri Perera. All rights reserved.</p>
-</footer>
+    <!-- ===================== CONTACT ===================== -->
+    <section class="section-reveal" id="contact">
+        <h2>Get In Touch</h2>
+        <div class="contact-content">
+            <p>I'm always interested in hearing about new opportunities and connecting with fellow professionals.</p>
+            <div class="contact-links">
+                <a href="mailto:kenuriperera@gmail.com" class="contact-btn" title="Email">
+                    <i class="fas fa-envelope"></i> Email
+                </a>
+                <a href="https://linkedin.com/in/kenuri-perera" target="_blank" class="contact-btn" title="LinkedIn">
+                    <i class="fab fa-linkedin"></i> LinkedIn
+                </a>
+                <a href="https://github.com/kenuri" target="_blank" class="contact-btn" title="GitHub">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
+            </div>
+        </div>
+    </section>
 
-<script src="script.js"></script>
+    <!-- ===================== FOOTER ===================== -->
+    <footer>
+        <p>&copy; 2025 Kenuri Perera. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+        menuToggle.addEventListener('click', () => navMenu.classList.toggle('active'));
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => navMenu.classList.remove('active'));
+        });
+
+        // Section reveal on scroll
+        const reveals = document.querySelectorAll('.section-reveal');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+        reveals.forEach(r => revealObserver.observe(r));
+
+        // Skill bars animation
+        const bars = document.querySelectorAll('.skill-bar-fill');
+        const barObserver = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.style.width = e.target.dataset.width;
+                    barObserver.unobserve(e.target);
+                }
+            });
+        }, { threshold: 0.5 });
+        bars.forEach(b => barObserver.observe(b));
+
+        // Active nav link on scroll
+        const sections = document.querySelectorAll('section[id]');
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(sec => {
+                if (window.scrollY >= sec.offsetTop - 120) current = sec.getAttribute('id');
+            });
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.toggle('active', link.getAttribute('href') === '#' + current);
+            });
+        });
+    </script>
+
 </body>
+
 </html>
