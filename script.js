@@ -48,14 +48,121 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// ==================== Certificate Image Lightbox ====================
-const certImages = document.querySelectorAll('.cert-img');
-certImages.forEach(img => {
-    img.style.cursor = 'pointer';
-    img.addEventListener('click', () => {
-        openLightbox(img.src);
+// ==================== Interactive Certificate Gallery ====================
+const certificatesData = [
+    {
+        img: 'assets/certificates/cert1.jpg',
+        label: 'Postman Student Expert Program',
+        title: 'Postman API Fundamentals Student Expert',
+        desc: 'Earned by completing the official Postman learning path — covering REST APIs, request building, test scripting, and API documentation. This certification supports my Business Analysis career path by enabling technical fluency with development teams.',
+        tags: ['REST APIs', 'API Testing', 'Postman Collections', 'Test Scripting']
+    },
+    {
+        img: 'assets/certificates/cert2.jpg',
+        label: 'Agile & SCRUM Fundamentals',
+        title: 'Agile Methodologies Certification',
+        desc: 'Completed training on Agile methodologies, SCRUM frameworks, and iterative software development lifecycle. Built foundational knowledge for business requirements analysis in an Agile environment.',
+        tags: ['Agile', 'SCRUM', 'SDLC', 'Business']
+    },
+    {
+        img: 'assets/certificates/cert3.jpg',
+        label: 'Data Analysis Fundamentals',
+        title: 'Data-Driven Decision Making',
+        desc: 'Acquired skills in interpreting data structures, performing foundational data analysis, and translating analytical findings into business value. Essential for modern BA roles.',
+        tags: ['Data Analysis', 'SQL', 'Dashboards']
+    },
+    {
+        img: 'assets/certificates/cert4.jpg',
+        label: 'Enterprise Architecture',
+        title: 'IT Systems and Business Alignment',
+        desc: 'Understanding how IT systems align with broader business objectives. Learned to document architectural components and business workflows efficiently.',
+        tags: ['Architecture', 'Business Alignment', 'Workflows']
+    },
+    {
+        img: 'assets/certificates/cert5.jpg',
+        label: 'UI/UX Principles',
+        title: 'User-Centered Design and Wireframing',
+        desc: 'Explored principles of human-computer interaction, user journey mapping, and creating effective wireframes to communicate business requirements to design teams.',
+        tags: ['UI/UX', 'Figma', 'Wireframing']
+    },
+    {
+        img: 'assets/certificates/cert6.jpg',
+        label: 'Requirements Engineering',
+        title: 'Advanced Requirements Gathering',
+        desc: 'Mastered techniques for eliciting, analyzing, and managing software requirements from stakeholders effectively.',
+        tags: ['Requirements', 'Elicitation', 'Stakeholders']
+    },
+    {
+        img: 'assets/certificates/cert7.jpg',
+        label: 'Software Testing Basics',
+        title: 'Quality Assurance Fundamentals',
+        desc: 'Learned the basic concepts of software testing, test case design, and quality assurance processes essential for a robust product lifecycle.',
+        tags: ['QA', 'Testing', 'Test Cases']
+    },
+    {
+        img: 'assets/certificates/cert8.jpg',
+        label: 'Cloud Fundamentals',
+        title: 'Cloud Computing Essentials',
+        desc: 'Gained introductory knowledge of cloud concepts, essential cloud services, security, architecture, pricing, and support.',
+        tags: ['Cloud', 'SaaS', 'Infrastructure']
+    }
+];
+
+const certItems = document.querySelectorAll('.cert-item');
+const activeCertImg = document.getElementById('active-cert-img');
+const activeCertLabel = document.getElementById('active-cert-label');
+const activeCertTitle = document.getElementById('active-cert-title');
+const activeCertDesc = document.getElementById('active-cert-desc');
+const activeCertTags = document.getElementById('active-cert-tags');
+const activeCertContent = document.getElementById('active-cert-content');
+
+certItems.forEach((item, index) => {
+    // Initial setup mappings
+    const data = certificatesData[index];
+    if (data && index === 0) {
+        item.classList.add('active');
+    }
+
+    item.style.cursor = 'pointer';
+    item.addEventListener('click', () => {
+        if (item.classList.contains('active')) return;
+
+        certItems.forEach(c => c.classList.remove('active'));
+        item.classList.add('active');
+
+        if (data && activeCertImg && activeCertContent) {
+            // Re-trigger animation
+            activeCertContent.classList.remove('cert-fade-anim');
+            void activeCertContent.offsetWidth; // Trigger reflow
+            activeCertContent.classList.add('cert-fade-anim');
+
+            activeCertImg.classList.remove('cert-fade-anim');
+            void activeCertImg.offsetWidth;
+            activeCertImg.classList.add('cert-fade-anim');
+
+            // Update content
+            activeCertImg.src = data.img;
+            activeCertLabel.textContent = data.label;
+            activeCertTitle.textContent = data.title;
+            activeCertDesc.textContent = data.desc;
+            
+            // Update tags
+            activeCertTags.innerHTML = '';
+            data.tags.forEach(tag => {
+                const span = document.createElement('span');
+                span.textContent = tag;
+                activeCertTags.appendChild(span);
+            });
+        }
     });
 });
+
+// ==================== Certificate Image Lightbox ====================
+if (activeCertImg) {
+    activeCertImg.addEventListener('click', () => {
+        openLightbox(activeCertImg.src);
+    });
+}
 
 function openLightbox(imgSrc) {
     const lightbox = document.createElement('div');
