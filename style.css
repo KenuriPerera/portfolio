@@ -152,7 +152,8 @@ a:hover {
 
 /* ==================== Utility: Section Tag ==================== */
 .section-tag {
-    display: inline-flex;
+    display: flex;
+    width: fit-content;
     align-items: center;
     gap: 0.45rem;
     font-family: var(--font-body);
@@ -1728,5 +1729,37 @@ footer p {
 
     .hero-stat-divider {
         display: none;
+    }
+}
+
+/* ==================== Print Styles ==================== */
+@media print {
+    * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+    
+    body {
+        background: var(--midnight) !important;
+        color: var(--text-primary) !important;
+    }
+    
+    /* Hide non-printable elements */
+    .navbar, .hero-scroll, .cv-download {
+        display: none !important;
+    }
+    
+    /* Ensure all elements are block to avoid page breaks breaking layout */
+    section {
+        page-break-inside: avoid;
+        margin: 2rem 0 !important;
+        padding: 2rem !important;
+        border: 1px solid var(--glass-border) !important;
+    }
+
+    /* Force background colors to print for cards */
+    .journal-card, .project-card, .skill-category, .cert-featured {
+        background: rgba(13, 21, 38, 0.6) !important;
+        border: 1px solid var(--glass-border) !important;
     }
 }
