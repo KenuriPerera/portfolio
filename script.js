@@ -6,11 +6,33 @@ menuToggle.addEventListener('click', () => {
     navMenu.classList.toggle('active');
 });
 
-// Close menu when a link is clicked
 document.querySelectorAll('.nav-link').forEach(link => {
     link.addEventListener('click', () => {
         navMenu.classList.remove('active');
     });
+});
+
+// ==================== Navbar Scroll State ====================
+const navbar = document.querySelector('.navbar');
+window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 20);
+});
+
+// ==================== Section Reveal on Scroll ====================
+const revealObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+        }
+    });
+}, {
+    threshold: 0.15,
+    rootMargin: '0px 0px -100px 0px'
+});
+
+document.querySelectorAll('.section-reveal').forEach(section => {
+    revealObserver.observe(section);
 });
 
 // ==================== Intersection Observer for Animations ====================
@@ -29,10 +51,22 @@ const observer = new IntersectionObserver((entries) => {
 }, observerOptions);
 
 // Observe all project cards and skill items
-document.querySelectorAll('.project-card, .career-step, .skill-category, .cert-item').forEach(element => {
+document.querySelectorAll('.project-card, .skill-category, .cert-item').forEach(element => {
     element.style.opacity = '0';
     observer.observe(element);
 });
+
+// ==================== Skill Bar Fill Animation ====================
+const bars = document.querySelectorAll('.skill-bar-fill');
+const barObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.width = entry.target.dataset.width;
+            barObserver.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.5 });
+bars.forEach(b => barObserver.observe(b));
 
 // ==================== Smooth Scroll Behavior ====================
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -40,11 +74,24 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
+    });
+});
+
+// ==================== Active Navigation Link on Scroll ====================
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-link');
+
+window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(section => {
+        if (window.scrollY >= section.offsetTop - 160) {
+            current = section.getAttribute('id');
+        }
+    });
+    navLinks.forEach(link => {
+        link.classList.toggle('active', link.getAttribute('href') === '#' + current);
     });
 });
 
@@ -117,7 +164,6 @@ const activeCertTags = document.getElementById('active-cert-tags');
 const activeCertContent = document.getElementById('active-cert-content');
 
 certItems.forEach((item, index) => {
-    // Initial setup mappings
     const data = certificatesData[index];
     if (data && index === 0) {
         item.classList.add('active');
@@ -131,7 +177,6 @@ certItems.forEach((item, index) => {
         item.classList.add('active');
 
         if (data && activeCertImg && activeCertContent) {
-            // Re-trigger animation
             activeCertContent.classList.remove('cert-fade-anim');
             void activeCertContent.offsetWidth; // Trigger reflow
             activeCertContent.classList.add('cert-fade-anim');
@@ -140,13 +185,11 @@ certItems.forEach((item, index) => {
             void activeCertImg.offsetWidth;
             activeCertImg.classList.add('cert-fade-anim');
 
-            // Update content
             activeCertImg.src = data.img;
             activeCertLabel.textContent = data.label;
             activeCertTitle.textContent = data.title;
             activeCertDesc.textContent = data.desc;
-            
-            // Update tags
+
             activeCertTags.innerHTML = '';
             data.tags.forEach(tag => {
                 const span = document.createElement('span');
@@ -172,7 +215,7 @@ function openLightbox(imgSrc) {
         left: 0;
         width: 100%;
         height: 100%;
-        background: rgba(0, 0, 0, 0.8);
+        background: rgba(19, 26, 44, 0.72);
         display: flex;
         justify-content: center;
         align-items: center;
@@ -186,7 +229,7 @@ function openLightbox(imgSrc) {
         max-width: 90%;
         max-height: 90%;
         border-radius: 10px;
-        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+        box-shadow: 0 20px 60px rgba(19, 26, 44, 0.45);
     `;
 
     lightbox.appendChild(img);
@@ -196,7 +239,6 @@ function openLightbox(imgSrc) {
         lightbox.remove();
     });
 
-    // Close on Escape key
     const closeOnEscape = (e) => {
         if (e.key === 'Escape') {
             lightbox.remove();
@@ -206,19 +248,14 @@ function openLightbox(imgSrc) {
     document.addEventListener('keydown', closeOnEscape);
 }
 
-// ==================== Add Animation to Fadeout ====================
-const style = document.createElement('style');
-style.textContent = `
+const lightboxStyle = document.createElement('style');
+lightboxStyle.textContent = `
     @keyframes fadeIn {
-        from {
-            opacity: 0;
-        }
-        to {
-            opacity: 1;
-        }
+        from { opacity: 0; }
+        to { opacity: 1; }
     }
 `;
-document.head.appendChild(style);
+document.head.appendChild(lightboxStyle);
 
 // ==================== Scroll to Top Button ====================
 window.addEventListener('scroll', () => {
@@ -228,19 +265,20 @@ window.addEventListener('scroll', () => {
             const btn = document.createElement('button');
             btn.id = 'scrollToTop';
             btn.innerHTML = '↑';
+            btn.setAttribute('aria-label', 'Scroll to top');
             btn.style.cssText = `
                 position: fixed;
                 bottom: 30px;
                 right: 30px;
                 width: 50px;
                 height: 50px;
-                background: linear-gradient(135deg, #2563eb, #06b6d4);
-                color: white;
+                background: linear-gradient(135deg, #3552d9, #0e9e96);
+                color: #fff;
                 border: none;
                 border-radius: 50%;
-                font-size: 24px;
+                font-size: 22px;
                 cursor: pointer;
-                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+                box-shadow: 0 10px 26px rgba(53, 82, 217, 0.28);
                 z-index: 999;
                 animation: slideUp 0.3s ease;
                 transition: all 0.3s ease;
@@ -253,59 +291,28 @@ window.addEventListener('scroll', () => {
 
             btn.addEventListener('mouseover', () => {
                 btn.style.transform = 'translateY(-5px)';
-                btn.style.boxShadow = '0 6px 20px rgba(0, 0, 0, 0.3)';
+                btn.style.boxShadow = '0 14px 32px rgba(53, 82, 217, 0.35)';
             });
 
             btn.addEventListener('mouseout', () => {
                 btn.style.transform = 'translateY(0)';
-                btn.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.2)';
+                btn.style.boxShadow = '0 10px 26px rgba(53, 82, 217, 0.28)';
             });
         }
     } else {
-        const scrollBtn = document.getElementById('scrollToTop');
-        if (scrollBtn) scrollBtn.remove();
+        const btn = document.getElementById('scrollToTop');
+        if (btn) btn.remove();
     }
 });
 
-// Add slideUp animation
 const slideUpStyle = document.createElement('style');
 slideUpStyle.textContent = `
     @keyframes slideUp {
-        from {
-            opacity: 0;
-            transform: translateY(20px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
     }
 `;
 document.head.appendChild(slideUpStyle);
-
-// ==================== Track Active Navigation Link ====================
-window.addEventListener('scroll', () => {
-    const sections = document.querySelectorAll('section, header');
-    const navLinks = document.querySelectorAll('.nav-link');
-
-    let current = '';
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        if (scrollY >= sectionTop - 200) {
-            current = section.getAttribute('id');
-        }
-    });
-
-    navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href').slice(1) === current) {
-            link.style.color = 'var(--primary-color)';
-        } else {
-            link.style.color = '';
-        }
-    });
-});
 
 // ==================== Form Validation (if contact form is added) ====================
 function validateEmail(email) {
@@ -313,7 +320,6 @@ function validateEmail(email) {
     return re.test(email);
 }
 
-// Initialize on page load
 document.addEventListener('DOMContentLoaded', () => {
     console.log('Portfolio loaded successfully!');
 });
